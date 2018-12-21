@@ -1,0 +1,21 @@
+version: '3'
+services:
+  webserver:
+    build: node
+    image: node-alpine-express
+    container_name: node-alpine-express
+    tty: true
+    volumes:
+      - ./node/app:/app
+    ports:
+      - "8080:3000"
+
+#
+# https://qiita.com/yukin01/items/4f54496fd2f577c56b1d
+# $ docker-compose build
+# $ docker-compose up -d
+# $ docker exec -it node-alpine-express /bin/sh (change container name if different)
+# # express -f --view=pug /app (to make express template)
+# # npm install
+# # npm start
+# express server on port 8080 (localhost)
